@@ -1,0 +1,13 @@
+show_uncategorized = false
+
+[[categories]]
+name = "project-architecture"
+paths = ["architecture/**"]
+
+[[categories]]
+name = "project-source"
+paths = ["src/**"]
+
+[[categories]]
+name = "project-tests"
+paths = ["tests/**"]

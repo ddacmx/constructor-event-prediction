@@ -1,0 +1,15 @@
+* text=auto
+.gitattributes text eol=lf
+
+# Keep source, specifications, configuration, and hash-bound text evidence stable.
+*.py text eol=lf
+*.md text eol=lf
+*.toml text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+*.gitignore text eol=lf
+LICENSE* text eol=lf
+NOTICE* text eol=lf
+
+# NumPy evidence and model arrays must never receive text conversion.
+*.npz binary

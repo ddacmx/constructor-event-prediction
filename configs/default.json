@@ -1,0 +1,47 @@
+{
+  "schema_version": "generator-config.v2",
+  "min_length": 5,
+  "max_length": 14,
+  "history_window": 4,
+  "recency_cap": 10,
+  "laplace_alpha": 1.0,
+  "regularization_candidates": [0.1, 1.0, 10.0],
+  "bootstrap_replicates": 200,
+  "final_seeds": [20261021, 20261022, 20261023, 20261024, 20261025],
+  "event_catalog": {
+    "api_interface_modified": "An API interface was modified.",
+    "dependency_upgraded": "A software dependency was upgraded.",
+    "compatibility_checked": "Compatibility with dependent components was checked.",
+    "ci_failed": "Continuous integration reported a failure.",
+    "bug_fixed": "A defect discovered during delivery was fixed.",
+    "integration_test_passed": "Integration tests completed successfully.",
+    "review_approved": "A reviewer approved the change.",
+    "deployed": "The change was deployed.",
+    "rolled_back": "A deployment was reverted."
+  },
+  "initial_weights": {"api_interface_modified": 0.58, "dependency_upgraded": 0.42},
+  "transition_weights": {
+    "api_interface_modified": {"compatibility_checked": 0.36, "ci_failed": 0.18, "dependency_upgraded": 0.16, "integration_test_passed": 0.15, "api_interface_modified": 0.15},
+    "dependency_upgraded": {"compatibility_checked": 0.38, "ci_failed": 0.20, "integration_test_passed": 0.16, "dependency_upgraded": 0.14, "api_interface_modified": 0.12},
+    "compatibility_checked": {"integration_test_passed": 0.34, "ci_failed": 0.24, "bug_fixed": 0.14, "review_approved": 0.16, "compatibility_checked": 0.12},
+    "ci_failed": {"bug_fixed": 0.44, "compatibility_checked": 0.18, "dependency_upgraded": 0.15, "ci_failed": 0.11, "api_interface_modified": 0.12},
+    "bug_fixed": {"compatibility_checked": 0.29, "integration_test_passed": 0.27, "ci_failed": 0.19, "review_approved": 0.10, "bug_fixed": 0.15},
+    "integration_test_passed": {"review_approved": 0.39, "ci_failed": 0.16, "compatibility_checked": 0.15, "bug_fixed": 0.10, "deployed": 0.20},
+    "review_approved": {"deployed": 0.49, "integration_test_passed": 0.19, "ci_failed": 0.11, "compatibility_checked": 0.10, "api_interface_modified": 0.11},
+    "deployed": {"__end__": 0.40, "rolled_back": 0.24, "ci_failed": 0.12, "bug_fixed": 0.10, "api_interface_modified": 0.14},
+    "rolled_back": {"__end__": 0.24, "bug_fixed": 0.31, "api_interface_modified": 0.20, "dependency_upgraded": 0.15, "compatibility_checked": 0.10}
+  },
+  "history_modifiers": {
+    "fallback_weights": {"bug_fixed": 0.08, "review_approved": 0.08, "compatibility_checked": 0.08, "deployed": 0.05, "rolled_back": 0.08},
+    "ci_failed_bug_fixed_multiplier": 2.2,
+    "ci_failed_review_approved_multiplier": 0.45,
+    "unresolved_compatibility_checked_multiplier": 1.8,
+    "unresolved_deployed_multiplier": 0.35,
+    "successful_test_review_approved_multiplier": 2.0,
+    "review_ready_deployed_multiplier": 2.2,
+    "deployed_rollback_with_failures_multiplier": 1.8,
+    "deployed_rollback_without_failures_multiplier": 0.7
+  },
+  "termination_policy": {"end_token": "__end__", "rollback_is_terminal": true}
+}
+

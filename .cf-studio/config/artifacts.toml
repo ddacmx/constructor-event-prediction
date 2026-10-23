@@ -1,0 +1,85 @@
+# Constructor Studio artifact registry.
+
+[[systems]]
+name = "Software Delivery Event Prediction"
+slug = "event-prediction"
+kit = "sdlc"
+artifacts_dir = "architecture"
+
+[[systems.codebase]]
+name = "Python source"
+path = "src"
+extensions = [".py"]
+single_line_comments = ["#"]
+
+[[systems.codebase]]
+name = "Python tests"
+path = "tests"
+extensions = [".py"]
+single_line_comments = ["#"]
+
+[[systems.artifacts]]
+name = "Product Requirements"
+path = "architecture/PRD.md"
+kind = "PRD"
+traceability = "DOCS-ONLY"
+
+[[systems.artifacts]]
+name = "Probabilistic Event Simulator Decision"
+path = "architecture/ADR/0001-probabilistic-event-simulator-v1.md"
+kind = "ADR"
+traceability = "DOCS-ONLY"
+
+[[systems.artifacts]]
+name = "Classical Prediction Model Family Decision"
+path = "architecture/ADR/0002-classical-prediction-models-v1.md"
+kind = "ADR"
+traceability = "DOCS-ONLY"
+
+[[systems.artifacts]]
+name = "Sequence Level Evaluation Decision"
+path = "architecture/ADR/0003-sequence-level-evaluation-v1.md"
+kind = "ADR"
+traceability = "DOCS-ONLY"
+
+[[systems.artifacts]]
+name = "Technical Design"
+path = "architecture/DESIGN.md"
+kind = "DESIGN"
+traceability = "DOCS-ONLY"
+
+[[systems.artifacts]]
+name = "Implementation Decomposition"
+path = "architecture/DECOMPOSITION.md"
+kind = "DECOMPOSITION"
+traceability = "DOCS-ONLY"
+
+[[systems.artifacts]]
+name = "Synthetic Data Generation Feature"
+path = "architecture/features/synthetic-data-generation.md"
+kind = "FEATURE"
+traceability = "FULL"
+
+[[systems.artifacts]]
+name = "Baseline Prediction Feature"
+path = "architecture/features/baseline-prediction.md"
+kind = "FEATURE"
+traceability = "FULL"
+
+[[systems.artifacts]]
+name = "Machine Learning Prediction Feature"
+path = "architecture/features/ml-prediction.md"
+kind = "FEATURE"
+traceability = "FULL"
+
+[[systems.artifacts]]
+name = "Benchmarking and Evaluation Feature"
+path = "architecture/features/benchmarking-evaluation.md"
+kind = "FEATURE"
+traceability = "FULL"
+
+[[systems.artifacts]]
+name = "Reproducible CLI Demonstration Feature"
+path = "architecture/features/reproducible-cli-demo.md"
+kind = "FEATURE"
+traceability = "FULL"

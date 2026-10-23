@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "experiment-manifest.v2",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "status", "count", "seeds", "run", "artifacts", "provenance", "event_vocabulary", "final_profile", "final_profile_hash", "aggregate", "aggregate_result", "report", "seed_results"],
+  "properties": {
+    "schema_version": {"const": "benchmark-result.v2"},
+    "status": {"enum": ["COMPLETE", "PRELIMINARY"]},
+    "count": {"type": "integer", "minimum": 1},
+    "seeds": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "integer"}},
+    "run": {"type": "string", "minLength": 1},
+    "artifacts": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}},
+    "provenance": {"type": "object", "additionalProperties": false, "required": ["command_version", "numpy_version", "python_version", "scikit_learn_version", "config_hash", "seeds", "final_profile_hash"], "properties": {"command_version": {"type": "string", "minLength": 1}, "numpy_version": {"type": "string", "minLength": 1}, "python_version": {"type": "string", "minLength": 1}, "scikit_learn_version": {"type": "string", "minLength": 1}, "config_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "seeds": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "integer"}}, "final_profile_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}},
+    "event_vocabulary": {"type": "array", "minItems": 9, "maxItems": 9, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "final_profile": {"type": "object", "additionalProperties": false, "required": ["schema_version", "count", "seeds", "config_hash"], "properties": {"schema_version": {"const": "final-benchmark-profile.v1"}, "count": {"const": 10000}, "seeds": {"const": [20261021, 20261022, 20261023, 20261024, 20261025]}, "config_hash": {"const": "83b78d453501c33415d8e834ea3f0d46d66aa44278ae2fb1e1f471f1f12e2b51"}}},
+    "final_profile_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "aggregate": {"type": "object", "minProperties": 1},
+    "aggregate_result": {"type": "string", "minLength": 1},
+    "report": {"type": "string", "minLength": 1},
+    "seed_results": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+  }
+}
